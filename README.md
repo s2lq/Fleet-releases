@@ -4,103 +4,102 @@
 
 # Fleet
 
-A plain black Roblox multi-account manager and launcher for Windows.
+Run several Roblox accounts at once on Windows.
 
-[![Download](https://img.shields.io/badge/Download-latest-ECECEC?style=for-the-badge)](../../releases/latest)
-[![License](https://img.shields.io/badge/License-All%20rights%20reserved-lightgrey?style=for-the-badge)](LICENSE)
+[Download](../../releases/latest)
 
 </div>
-
-Fleet keeps all your Roblox accounts in one place and starts as many of them as you like at the same time. It tiles the windows on your screen, keeps every window light on your PC, and brings an account back when it crashes or gets kicked. The interface is flat and black with a very quiet moving background, and there is no sidebar: accounts live on their own page.
 
 <p align="center">
   <img src="docs/screenshots/overview.png" width="49%" alt="Overview">
   <img src="docs/screenshots/accounts.png" width="49%" alt="Accounts">
 </p>
 
+Fleet keeps your Roblox accounts in one place and starts as many of them as you like. It puts the windows in a tidy grid, keeps each one from eating your PC, and starts an account again if its window closes. It is one exe with no installer.
 
-## Contents
+The look is black and plain on purpose.
 
-- [Getting started](#getting-started)
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Safety and privacy](#safety-and-privacy)
+## Install
 
-## Getting started
+1. Download `Fleet.exe` from the latest release and run it. `SHA256SUMS.txt` next to it has the hash if you want to check the file.
+2. The exe is not code signed, so Windows SmartScreen may warn you the first time. Choose More info, then Run anyway.
+3. The first start asks a few things: language, a look, whether to turn on multi-instance, how heavy Roblox may be, where to keep your data (normal or portable), and whether to add Fleet to the Start menu.
 
-1. Download `Fleet.exe` from the Releases page and run it. Nothing needs to be installed.
-2. The first-run setup asks for your language, whether to turn multi-instance on, how heavy each Roblox window may be, where to keep your data, and how to add your first account.
-3. Add accounts with **Browser login** (Fleet opens Edge or Chrome, you log in, it reads the login for you) or **Paste cookies**.
-4. Select accounts on their cards, open **Launch**, pick a game and press **Launch**.
-5. Use **Layout** to tile the windows.
+Portable mode keeps everything in a `FleetData` folder next to the exe. Because that folder can be copied, portable mode always asks you for a password, and your accounts file is encrypted with it.
 
-Close all Roblox windows before turning multi-instance on. The exe is not code-signed, so Windows SmartScreen may warn the first time.
+## Using it
 
-## Features
+Add accounts with Browser login (Fleet opens Edge or Chrome, you sign in, and it reads the login) or by pasting cookies. Select some accounts on their cards, open Launch, pick a game, and press Launch. Layout tiles the windows.
 
-**Accounts**
-- Cards or a list (remembered), search, groups, tags, colours, notes, aliases and saved passwords
-- Quick selection: click, Ctrl and Shift click, a drag box like on the desktop, select all, invert, running, signed out. Pin accounts with a star, sort them, drag to put them in order, and undo or redo changes (Ctrl+Z, Ctrl+Y)
-- A bar for the selected accounts and a right click menu
-- Live status, a Robux balance, and a mute switch per account
-- Click an account's picture to see its 3D avatar from Roblox: drag to turn, scroll to zoom
-- A details view with account age, Premium, friends and followers
-- Import from other managers (JSON, text or `user:pass:cookie` lists)
-- Bulk actions on the selected accounts: launch, stop, mute, tag, group, colour, private server, check, remove
-- Real text fields: caret movement, selection, copy and paste, undo, a right-click menu and input for any language
-- Account tools: summary, quick selection, sort, bulk rename, bulk edit, duplicate finder and export of the selected accounts
-- Move everything to another PC as one password-protected file
+Close all Roblox windows before turning on multi-instance. If Roblox is already open when Fleet starts, it asks whether to close it first.
 
-**Launching**
-- Join a game, an exact server, a private server, or follow a player
-- Search a game by name, recent places, and a public server browser (fewest players, best ping, random)
-- Start every account at the same moment, or a fraction of a second apart. Login tickets are fetched in parallel and every window is found with one shared detector
-- Auto-relaunch watcher that rejoins the same server, with a crash breaker
-- Roblox version manager: download any recent version, switch the default, delete old ones, or give single accounts their own version
-- A cookie refresh option
+<p align="center">
+  <img src="docs/screenshots/launch.png" width="49%" alt="Launch">
+  <img src="docs/screenshots/layout.png" width="49%" alt="Layout">
+</p>
 
-**Private servers**
-- Saved named private servers, assigned per account or to a whole selection
-- Link check and one-click launch of everyone on a server
+## What is in it
 
-**Health**
-- Which logins work, which are signed out or locked, crashes in the last 7 days, and what to do
-- Event log with CSV export, quiet automatic checks, one-click recovery
+Accounts
+- Cards or a list, search, groups, tags, colours, notes, aliases and saved passwords.
+- Click, Ctrl and Shift click, or drag a box to select. Star accounts, sort them, drag them into order, and undo or redo changes.
+- Login checks, Robux, a browser login, and import from other managers.
 
-**Performance**
-- Frame rate limit and graphics presets, process priority, CPU and memory limits per window
-- Slow down windows you are not using, anti-AFK, per-window memory trim
-- A whole-PC memory cleaner (working sets, modified and standby lists), manual or automatic
-- CPU and memory of each window over the last 10 minutes or hour, with a warning when a window uses too much memory or keeps climbing
-- Quick configs from Ultimate performance to Best visuals, plus community configs
-- Shareable `.fcfg` configs that never contain accounts, cookies or servers
+Launching
+- Any server, a specific one, a private server, or join a friend.
+- Saved private servers, presets that restore accounts, game and layout, and a scheduler.
+- Auto relaunch with a crash breaker, so an account that keeps crashing is paused instead of looping.
+- Each account can use its own Roblox version or its own proxy.
 
-**Windows and tools**
-- Windows arrange themselves: a grid that fits the screen shape with no gaps, spread over one or all screens, and it rearranges itself when a window opens or closes
-- Presets that restore accounts, game and layout, optionally at startup
-- A scheduler: launch a preset or everyone, or stop everything, at set times and days
-- A command line that covers everything the window does (`fleetctl`, see below) and `fleet://` links
-- A gallery of shared configs and themes you can install from inside the app (`gallery/` in this repo, pull requests welcome)
-- Extra backup copies to a folder of your choice (needs a password) and keyboard shortcuts
-- Macro recorder (record and replay mouse and keyboard)
-- Mini window launcher, compact mode, tray icon, global hotkeys, Windows notifications
-- Alerts for crashes, kicks, low Robux, high memory and schedules, to Discord, Windows notifications and sounds, with quiet hours
-- The Roblox optimizer: recolours menus, icons and effects to one colour or your Fleet theme, draws a new sky, and can change the cursor, font, loading screen, sounds, studs and water, with a full restore
-- Lyrics on screen while Spotify plays: word by word, many styles, animations and per-word looks, drawn only over Roblox
-- Overlays over the Roblox window in front: clock, play time, CPU and memory, song, account, a note and a crosshair
-- A quick menu (Ctrl+Shift+F, changeable) inside Roblox for lyrics, overlays, looks and windows, applied as you change things
-- Discord Rich Presence, proxies per account (one each or several accounts per proxy)
-- An experimental option to start Roblox with the account's proxy in its environment
+Windows and performance
+- A grid that fits the screen, across one or all screens, which redraws itself when a window opens or closes.
+- Frame rate limit, graphics level, process priority, and CPU and memory limits per window.
+- Windows in the background can be slowed down, and memory can be trimmed by hand or on a timer.
+- History charts of CPU and memory for each window, with a warning when one climbs.
 
-**Look**
-- Eight black and four light themes, your own colour schemes (import and export), six accent colours
-- Smooth animations (page slides, staggered cards, count-up numbers, toasts, pulsing running dots) that stay light on the CPU: the interface is cached and only redrawn when it changes, the background moves at a low frame rate, and everything pauses when Fleet is in the background or on battery. Choose Efficient, Smooth or Minimal
-- Ten languages: Spanish, Portuguese, French, German, Italian, Turkish, Russian, Polish, Indonesian and Dutch
+<p align="center">
+  <img src="docs/screenshots/performance.png" width="49%" alt="Performance">
+  <img src="docs/screenshots/health.png" width="49%" alt="Health">
+</p>
 
-**Data**
-- Accounts encrypted with Windows, or with your own password
-- Portable mode in a `FleetData` folder next to the exe
-- Automatic backups and restore, and an updater that checks the SHA-256 before installing
+The Roblox optimizer
+- Recolours Roblox's menus, icons and effects to one colour or to your Fleet theme, and can draw a new sky.
+- Can change the cursor, the font, the loading screen, a few sounds (silence them, or use your own oof) and some textures.
+- Everything is off until you turn it on and press Apply. Restore puts every changed file back.
+- It only edits picture and sound files. Colours that Roblox draws from code, like the hotbar, cannot be changed, and a Roblox update brings the originals back until you apply again.
+
+<p align="center">
+  <img src="docs/screenshots/optimizer.png" width="49%" alt="The optimizer">
+  <img src="docs/screenshots/theme-midnight.png" width="49%" alt="Midnight theme">
+</p>
+
+Lyrics and overlays
+- Lyrics for the song Spotify is playing, drawn over Roblox only. They can be a single line, or short phrases with different sized words, and they follow the beat if you ask them to.
+- Optional overlays over the Roblox window in front: a clock, how long you have played, CPU and memory, the song, the account, a note and a crosshair.
+- Ctrl+Shift+F opens a small menu inside Roblox for changing these while you play. The key can be changed.
+
+<p align="center">
+  <img src="docs/screenshots/lyrics-line.png" width="49%" alt="Lyrics, one line at a time">
+  <img src="docs/screenshots/lyrics-collage.png" width="49%" alt="Lyrics as short phrases">
+</p>
+<p align="center">
+  <img src="docs/screenshots/overlays.png" width="49%" alt="Overlays">
+  <img src="docs/screenshots/theme-paper.png" width="49%" alt="Paper theme">
+</p>
+
+Other
+- Eight black themes and four light ones, your own colour schemes, and ten languages.
+- Alerts for crashes, kicks, low Robux and high memory, to Discord or Windows notifications.
+- A macro recorder, a mini window, a tray icon, global hotkeys, and Discord Rich Presence.
+- Accounts are encrypted with Windows, or with your own password. Backups and restore are built in.
+- A command line, below.
+
+<p align="center">
+  <img src="docs/screenshots/setup.png" width="32%" alt="First run setup">
+  <img src="docs/screenshots/mini-window.png" width="19%" alt="Mini window">
+</p>
+
+<sub>The screenshots use made-up accounts. The lyrics and overlay pictures are drawn over a generated sky, not a real game.</sub>
 
 ## Command line
 
@@ -131,40 +130,11 @@ fleetctl config set FpsCap 30
 
 The older `Fleet.exe --launch NAME --place ID`, `--launch-preset`, `--launch-all`, `--stop-all` and `fleet://` links still work.
 
-## Screenshots
-
-<p align="center">
-  <img src="docs/screenshots/setup.png" width="32%" alt="First-run setup">
-  <img src="docs/screenshots/mini-window.png" width="19%" alt="Mini window">
-</p>
-<p align="center">
-  <img src="docs/screenshots/launch.png" width="49%" alt="Launch">
-  <img src="docs/screenshots/servers.png" width="49%" alt="Servers">
-</p>
-<p align="center">
-  <img src="docs/screenshots/health.png" width="49%" alt="Health">
-  <img src="docs/screenshots/performance.png" width="49%" alt="Performance">
-</p>
-<p align="center">
-  <img src="docs/screenshots/configs.png" width="49%" alt="Configs">
-  <img src="docs/screenshots/layout.png" width="49%" alt="Layout">
-</p>
-<p align="center">
-  <img src="docs/screenshots/settings.png" width="49%" alt="Settings">
-  <img src="docs/screenshots/theme-midnight.png" width="49%" alt="Midnight theme with a grid background">
-</p>
-<p align="center">
-  <img src="docs/screenshots/theme-paper.png" width="49%" alt="Paper (light) theme">
-  <img src="docs/screenshots/optimizer.png" width="49%" alt="The Roblox optimizer">
-</p>
-
-<sub>The screenshots use made-up accounts.</sub>
-
 ## Safety and privacy
 
-- Accounts are encrypted and stay on your PC, in `%AppData%\Fleet` or the `FleetData` folder in portable mode.
-- Fleet talks only to Roblox (and to GitHub for update checks). Cookies go only to roblox.com.
+- Accounts are encrypted and stay on your PC, in `%AppData%\Fleet` or in the `FleetData` folder in portable mode.
+- Fleet talks to Roblox, to Spotify if you connect it, to a few lyrics sites, and to GitHub to check for updates. Cookies only go to roblox.com.
 - Nothing is injected into Roblox. Multi-instance works by holding Roblox's single-instance lock.
-- Roblox can change its client at any time, and running several clients may be against its rules. Use Fleet at your own risk and with your own accounts.
+- Roblox can change its client at any time, and running several clients may be against its rules. Use Fleet with your own accounts and at your own risk.
 
 Fleet is an independent project and is not affiliated with or endorsed by Roblox. All rights reserved, see [LICENSE](LICENSE).
