@@ -2,6 +2,7 @@
 
 ## 1.9.0
 
+- the in-game quick menu was checked by clicking through it: tabs, switches, groups and apply as you change things all work, and a note in its apply switch no longer runs over the button
 - releases are a single Fleet.exe with its SHA-256 next to it, and the updater checks the hash before installing
 - first run can add fleet to the start menu (also a switch in settings), and portable mode now always needs a password for the accounts file
 - multi-instance turns on by itself when no roblox is open, and when roblox is already open fleet asks to close it and then turns multi-instance on
